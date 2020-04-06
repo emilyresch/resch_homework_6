@@ -22,6 +22,51 @@
 <body>
     <script src="script.js"></script>
 
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Weather Search</h1>
+                <p class="lead">Current and Future forecast of any city!</p>
+            </div>
+        </div>
+        <!-- will use Bootstrap grid to create 2 columns - 4,8 -->
+        <!-- row 1 -->
+        <!-- column 1 (sm-4) will contain the search form which has a search city input and a submit button-->
+        <div class="container">
+            <div class="row">
+                <div class="col sm-4">
+                    <form>
+                        <div class="form-group search-boxes">
+                            <label for="exampleInputPassword1">Enter a city</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Enter a Zipcode</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+        <!-- column 2 will be the largest section and contains the appended forecast information -->
+                <div class="col sm-8 weather">
+                    <div class="weather-info"></div>
+                </div>
+            </div>
+        <!-- row 2 -->
+        <!-- column 1 (on left underneath search form) will display "last searched forecast" -->
+            <div class="row row2">
+                <div class="col sm-4">
+                    <p>Search History:</p>
+                    <div class="search-history"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
 </body>
 
 </html>
