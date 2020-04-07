@@ -6,8 +6,6 @@
 //on other half via js
 //open weather key - 69f2b66e6c9854ab3784dbb114768257
 
-
-
 //FILES REQUIRED
 //will need files for html, js and css 
 
@@ -15,7 +13,6 @@
 //html will have links to outside libraries/stylesheets etc
 //will need weather dashboard with form inputs - search bar; form control: type=text 
 //need space for info to be appended and space for search history 
-
 
 //JS FILE
 //Update right side of screen with appropriate info 
@@ -33,11 +30,36 @@
 //append search history to page (as clickable buttons) 
     //show current and future weather conditions for that city
 
-
 //CSS FILE
 
-//ACCEPTANCE CRITERIA
+///////////////////////////////////////////////START!
 
-// THEN I am again presented with current and future conditions for that city
-// WHEN I open the weather dashboard
-// THEN I am presented with the last searched city forecast
+//upon pageload, getItem to show search history
+//append search history as button to html 
+
+//need variables to save search input in 
+//need to validate - make sure city is correct and also not numbers etc
+//search button needs an onclick event that will create two buttons inside of the forecast div - current and future
+
+//need a current button and future button onclick event listener
+
+//global scope variables: weather images array, search input, 
+
+//if current button is pressed:
+/////AJAX call for CURRENT
+//need query URL to search for the city - create url with city and api key
+//make ajax call and then function {
+    //inside of function: 
+    //console.log/test out the object response
+    //find information needed in CURRENT forecast
+    //if/else statements to determine the weather image (if not provided in object response)
+    //if/else statement to determine UV index image and rating 
+    //append appropriate information to forecast div
+    //save all information to localStorage with setItem
+
+
+//if future button is pressed:
+////AJAX call for FUTURE
+
+
+
