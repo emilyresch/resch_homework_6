@@ -67,19 +67,20 @@ $(document).ready(function () {
         futureBtn.text("See Future Forecast");
         futureBtn.attr("class", "btn btn-primary");
 
-        current.append(currentBtn);
-        current.append(futureBtn);
+        var buttonDiv = $("<div>").attr("div-for-buttons");
+        forecast.append(buttonDiv);
+        forecast.append(currentBtn);
+        forecast.append(futureBtn);
         $("#current-btn").on("click", currentWeather);
         $("#future-btn").on("click", futureWeather);
-
-
     })
+    
     //need to validate - make sure city is correct and also not numbers etc
     //search button needs an onclick event that will create two buttons inside of the forecast div - current and future
 
     //need a current button and future button onclick event listener
 
-
+    
 
     //global scope variables: weather images array, search input, 
 
@@ -91,6 +92,7 @@ $(document).ready(function () {
     //make ajax call and then function() {
     //inside of function: 
     function currentWeather() {
+        clearFuture();
         var city = $("#city-input").val().trim();
         var queryURL = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=69f2b66e6c9854ab3784dbb114768257";
         $.ajax({
@@ -109,15 +111,15 @@ $(document).ready(function () {
             current.append(nameTitle);
             nameTitle.text(response.name + ", " + country);
 
-            // function addSearchHistory() {
-            //     // add it to search history too as a button
-            //     forecast.empty();
-            //     var srchHist = $(".search-history");
-            //     var cityNameBtn = $("<button>");
-            //     cityNameBtn.text(response.name);
-            //     srchHist.prepend(cityNameBtn);
-            //     cityNameBtn.on("click", currentWeather);
-            // }
+                // function addSearchHistory() {
+                //     // add it to search history too as a button
+                //     var srchHist = $(".search-history");
+                //     var cityNameBtn = $("<button>");
+                //     cityNameBtn.text(response.name);
+                //     srchHist.prepend(cityNameBtn);
+                //     cityNameBtn.on("click", currentWeather);
+                // }
+            
 
             //icon 
             var icon = response.weather[0].icon;
@@ -137,15 +139,27 @@ $(document).ready(function () {
             current.append(windH);
             windH.text(response.wind.speed + " mph winds");
             //uv index
-
+            
 
         })
-
+        
 
     }
+    
+    // function addSearchHistory() {
+        
+    //     // add it to search history too as a button
+    //     var city = $("#city-input").val().trim();
+    //     var srchHist = $(".search-history");
+    //     var cityNameBtn = $("<button>");
+    //     cityNameBtn.text(city);
+    //     srchHist.prepend(cityNameBtn);
+    //     cityNameBtn.on("click", currentWeather);
+    // }
 
 
     function futureWeather() {
+        clearCurrent();
         // console.log("future weather!");
         var city = $("#city-input").val().trim();
         var queryURL = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=69f2b66e6c9854ab3784dbb114768257";
@@ -154,17 +168,22 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            console.log((((response.list[7].main.temp - 273.15) * 1.8) + 32).toFixed(2));
-            console.log((((response.list[14].main.temp - 273.15) * 1.8) + 32).toFixed(2));
-            console.log((((response.list[21].main.temp - 273.15) * 1.8) + 32).toFixed(2));
-            console.log((((response.list[28].main.temp - 273.15) * 1.8) + 32).toFixed(2));
-            console.log((((response.list[35].main.temp - 273.15) * 1.8) + 32).toFixed(2));
+            // var day1 = ((((response.list[7].main.temp - 273.15) * 1.8) + 32).toFixed(2));
+            // var day2 = ((((response.list[14].main.temp - 273.15) * 1.8) + 32).toFixed(2));
+            // var day3 = ((((response.list[21].main.temp - 273.15) * 1.8) + 32).toFixed(2));
+            // var day4 = ((((response.list[28].main.temp - 273.15) * 1.8) + 32).toFixed(2));
+            // var day5 = ((((response.list[35].main.temp - 273.15) * 1.8) + 32).toFixed(2));
 
             for (var i=7; i<=35; i+=7) {
+            var dayTemp = ((((response.list[i].main.temp - 273.15) * 1.8) + 32).toFixed(2));
             var icon = response.list[i].weather[0].icon;
             console.log(icon);
-            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
             var iconFuture = $("<img>").attr("src", iconURL);
+            var newWeather = $("<h3>").attr("style", "color: orange;");
+            newWeather.text(dayTemp);
+            future.append(newWeather)
+            future.append(iconFuture);
             }
 
 
@@ -176,12 +195,12 @@ $(document).ready(function () {
         })
     }
     
-    function clearForecast () {
-        if (current) {
+    function clearFuture () {
         future.empty();
-        }else{
+    }
+
+    function clearCurrent () {
         current.empty();
-        }
     }
     //console.log/test out the object response
     //find information needed in CURRENT forecast
