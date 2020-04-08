@@ -8,5 +8,6 @@ When current weather is clicked, the user is presented with the name of the city
 Some issues: when I tried to add a function that put the searched city as a button in "search history" this broke my code. 
 I also couldn't get the current/future buttons to appear at the top of their div (I tried a lot of things so I need a new pair of eyes on it). 
 I need to finish up with local storage. 
+UV index was not included in the object...
 
 This time around I took a bunch of time to pseudo code and prepare for what was involved in this project. So, I have a good idea of where everything needs to happen but not entirely sure how to execute. 
