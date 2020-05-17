@@ -4,26 +4,32 @@
 
 /* .row2 {
     background-color: pink;
-}
-
-.weather {
-    background-color: pink;
 } */
 
-.row1 {
+/* .weather {
+    background-color: pink;
+}  */
+
+/* .row1 {
     height: 12em;
-}
-#current-btn {
+} */
+/* #current-btn {
     margin: 10px;
-}
+} */
 
 #future-btn {
     margin: 10px;
 }
 
 .weather-info {
-    text-align: left;
+    justify-content: start;
 }
 
+.card {
+    margin: auto;
+    margin-top: 10px;
+}
 
-
+/* .weather-info {
+    text-align: left;
+} */

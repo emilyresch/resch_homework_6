@@ -7,67 +7,62 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-   
+
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <script src="./script.js"></script>
+    
 
+<div class="container">
+<div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Weather Search</h1>
-                <p class="lead">Current and Future forecast of any city!</p>
-            </div>
-        </div>
-        <!-- will use Bootstrap grid to create 2 columns - 4,8 -->
-        <!-- row 1 -->
-        <!-- column 1 (sm-4) will contain the search form which has a search city input and a submit button-->
-        <div class="container">
-            <div class="row row1">
-                <div class="col sm-2">
-                    <form>
-                        <div class="form-group search-boxes">
-                            <label for="exampleInputPassword1">Enter a city</label>
-                            <input type="text" class="form-control" id="city-input">
-                        </div>
-                        <!-- <div class="form-group">
-                            <label for="exampleInputPassword1">Enter a Zipcode</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div> -->
-                        <button type="submit" class="btn btn-primary" id="search-button">Search</button>
-                    </form>
+        <h1 class="display-4">Weather Forecast</h1>
+        <p class="lead">Search a city to find Current and 5-day Forecasts</p>
+    </div>
+</div>
+<!-- will use Bootstrap grid to create 2 columns - 4,8 -->
+<!-- row 1 -->
+<!-- column 1 (sm-4) will contain the search form which has a search city input and a submit button-->
+<div class="container">
+    <div class="row row1">
+        <!-- form to search a city -->
+        <!-- <div class="col"> -->
+            <form>
+                <div class="form-group search-boxes">
+                    <label for="exampleInputPassword1">Enter a city</label>
+                    <input type="text" class="form-control" id="city-input">
                 </div>
-        <!-- column 2 will be the largest section and contains the appended forecast information -->
-                <div class="col sm-10 weather">
-                    <div class="weather-info"></div>
-                </div>
-            </div>
-        <!-- row 2 -->
-        <!-- column 1 (on left underneath search form) will display "last searched forecast" -->
-            <div class="row row2">
-                <div class="col sm-4">
-                    <p>Search History:</p>
-                    <div class="search-history"></div>
-                    <button type="submit" class="btn btn-primary" id="clear-search">Clear Search History</button>
-                </div>
-            </div>
-        </div>
+                <button type="submit" class="btn btn-primary current-weather" id="current-btn">Current</button>
+                <button type="submit" class="btn btn-primary future-weather" id="future-btn">5-Day</button>
+            </form>
+        <!-- </div> -->
+    </div>
+    <!-- row 2 contains the appended forecast information -->
+    <div class="row row2 weather-info">
+            <!-- <div class="weather-info"></div> -->
+    </div>
+        <!-- will display "last searched forecast"  -->
+    <div class="row row3">
+            <p>Search History:</p>
+            <div class="search-history"></div>
+    </div>
+    <div class="row row4">
+        <button type="submit" class="btn btn-primary" id="clear-search">Clear Search History</button>
 
     </div>
+</div>
 
-
+</div>
+<script src="./newscript.js"></script>
 
 
 </body>

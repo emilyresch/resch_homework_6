@@ -48,6 +48,7 @@ $(document).ready(function () {
     var forecast = $(".weather-info");
     var current = $("<div>").attr("class", "current-weather");
     var future = $("<div>").attr("class", "future-weather");
+    var history = $(".search-history");
     forecast.append(current);
     forecast.append(future);
 
@@ -71,8 +72,10 @@ $(document).ready(function () {
         forecast.append(buttonDiv);
         forecast.append(currentBtn);
         forecast.append(futureBtn);
+        history.append(searched);
         $("#current-btn").on("click", currentWeather);
         $("#future-btn").on("click", futureWeather);
+
     })
     
     //need to validate - make sure city is correct and also not numbers etc
@@ -181,7 +184,7 @@ $(document).ready(function () {
             var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
             var iconFuture = $("<img>").attr("src", iconURL);
             var newWeather = $("<h3>").attr("style", "color: orange;");
-            newWeather.text(dayTemp);
+            newWeather.text(dayTemp); 
             future.append(newWeather)
             future.append(iconFuture);
             }
